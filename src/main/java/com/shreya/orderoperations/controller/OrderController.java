@@ -1,7 +1,10 @@
 package com.shreya.orderoperations.controller;
 
+import com.shreya.orderoperations.model.Order;
 import com.shreya.orderoperations.service.OrderService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -19,6 +22,11 @@ public class OrderController {
     @GetMapping
     public List<Order> getAllOrders(){
         return orderService.getAllOrders();
+    }
+
+    @PutMapping("/{id}/cancel")
+    public Order cancelOrder(@PathVariable Long id){
+        return orderService.cancelOrder(id);
     }
 
 }
