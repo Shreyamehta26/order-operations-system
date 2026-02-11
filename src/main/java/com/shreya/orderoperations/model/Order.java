@@ -1,11 +1,18 @@
 package com.shreya.orderoperations.model;
 import com.shreya.orderoperations.model.OrderStatus;
+import jakarta.persistence.*;
 
-
+@Entity
+@Table(name="orders")
 public class Order {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String productName;
     private Double price;
+
+    @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
     public Order() {}
